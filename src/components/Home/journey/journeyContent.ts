@@ -5,6 +5,9 @@ import thuThiem from "../../../assets/images/home/thu-thiem-04-2020.jpg";
 
 export const UNIT = { project: "Lumen Riverside", code: "A-16.03", type: "2 phòng ngủ · 74 m²", price: "6,72 tỷ" };
 
+// Ô bảng hàng mẫu: f còn trống, h đang giữ, s đã bán
+export const SHEET = ["f", "s", "f", "h", "s", "f", "s", "f", "f", "h", "s", "s", "f", "s", "f", "h", "f", "s", "f", "f", "s", "h", "f", "s"];
+
 export const HERO2 = {
   motto: "Khi bất động sản được số hóa, mỗi lựa chọn an cư trở nên minh bạch hơn, nhanh hơn và đáng tin hơn.",
   start: "Bắt đầu hành trình",

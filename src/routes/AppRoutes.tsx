@@ -236,6 +236,8 @@ const HomePage = lazy(() => import("../pages/Home/HomePage"));
 const HomePage2 = lazy(() => import("../pages/Home2/HomePage2"));
 const HomePage3 = lazy(() => import("../pages/Home3/HomePage3"));
 const HomePage4 = lazy(() => import("../pages/Home4/HomePage4"));
+const HomePage5 = lazy(() => import("../pages/Home5/HomePage5"));
+const HomePage6 = lazy(() => import("../pages/Home6/HomePage6"));
 const HomeClassicPage = lazy(
   () => import("../pages/HomeClassic/HomeClassicPage")
 );
@@ -293,6 +295,28 @@ const AppRoutes = () => {
               <NotificationRealtime />
               <GlobalLoadingOverlay />
               <HomePage4 />
+            </ToastProvider>
+          }
+        />
+        {/* Trang chủ nháp 5 để so sánh: bố cục giống /home-2, nội dung theo bản trang chủ Hubtech */}
+        <Route
+          path="/home-5"
+          element={
+            <ToastProvider>
+              <NotificationRealtime />
+              <GlobalLoadingOverlay />
+              <HomePage5 />
+            </ToastProvider>
+          }
+        />
+        {/* Trang chủ nháp 6 để so sánh: dải xanh đậm xen dải trắng, theo ảnh mẫu thiết kế */}
+        <Route
+          path="/home-6"
+          element={
+            <ToastProvider>
+              <NotificationRealtime />
+              <GlobalLoadingOverlay />
+              <HomePage6 />
             </ToastProvider>
           }
         />

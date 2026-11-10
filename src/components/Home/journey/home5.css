@@ -1,0 +1,45 @@
+/* Trang chủ nháp 5 (/home-5): dùng lại journey.css của /home-2, phần dưới chỉ là các khối mới. */
+
+/* Hero: đoạn mô tả dài hơn bản /home-2 */
+.home-j5 .jr-hero-sub { max-width: 54ch; }
+
+/* Dải thống kê ở chân hero */
+.j5-stats { display: grid; grid-template-columns: 1fr 1fr; margin-top: clamp(36px, 4vw, 56px); border-radius: 18px; background: rgba(10, 26, 20, .6); backdrop-filter: blur(10px); box-shadow: var(--sh-card); overflow: hidden; }
+@media (min-width: 860px) { .j5-stats { grid-template-columns: repeat(4, 1fr); } }
+.j5-stats > div { display: flex; flex-direction: column-reverse; gap: 6px; padding: 20px 22px; box-shadow: -1px 0 0 var(--edge), 0 -1px 0 var(--edge); }
+.j5-stats dd { font-size: clamp(1.7rem, 2.6vw, 2.4rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1; background: var(--grad-gold); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.j5-stats dt { font-size: .8rem; color: var(--ink-2); }
+
+/* Vì sao chọn: 4 cột ngăn bằng vạch, số lớn mờ phía sau */
+.j5-why { display: grid; gap: 28px 0; }
+@media (min-width: 640px) { .j5-why { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .j5-why { grid-template-columns: repeat(4, 1fr); } }
+.j5-why li { position: relative; isolation: isolate; display: grid; align-content: start; gap: 10px; padding: 8px 24px 8px 0; }
+@media (min-width: 640px) { .j5-why li + li { padding-left: 24px; border-left: 1px solid var(--edge); } }
+@media (min-width: 640px) and (max-width: 999px) { .j5-why li:nth-child(3) { padding-left: 0; border-left: 0; } }
+.j5-why-n { position: absolute; z-index: -1; top: -14px; right: 18px; font-size: 4.6rem; font-weight: 800; letter-spacing: -0.06em; line-height: 1; color: rgba(13, 217, 84, .07); }
+.j5-why-ic { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--bg); background: var(--grad); box-shadow: 0 0 24px -6px var(--green); }
+.j5-why-ic svg { width: 20px; height: 20px; }
+.j5-why b { margin-top: 6px; font-size: 1.1rem; font-weight: 800; text-transform: uppercase; }
+.j5-why p { font-size: .86rem; color: var(--ink-2); }
+
+/* Công cụ: tiêu đề mục đứng trên trục sáng */
+.j5-tools { padding-top: clamp(56px, 6vw, 96px); }
+.j5-tools .rn-head { margin-bottom: clamp(24px, 3vw, 40px); }
+
+/* Công cụ 04: danh sách cẩm nang */
+.j5-guide { display: grid; gap: 12px; }
+.j5-guide-h { display: flex; align-items: center; gap: 8px; }
+.j5-guide-h svg { width: 18px; height: 18px; color: var(--gold); }
+.j5-guide-h b { font-size: .85rem; text-transform: uppercase; }
+.j5-guide ul { display: grid; gap: 8px; }
+.j5-guide li { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; background: rgba(255, 255, 255, .03); box-shadow: inset 0 0 0 1px var(--edge); transition: box-shadow .3s; }
+.j5-guide li:hover { box-shadow: inset 0 0 0 1px rgba(13, 217, 84, .6); }
+.j5-guide em { padding: 2px 8px; border-radius: 999px; font-style: normal; font-size: .66rem; font-weight: 700; color: var(--gold); background: rgba(242, 185, 15, .1); box-shadow: inset 0 0 0 1px rgba(242, 185, 15, .3); animation: none; }
+.j5-guide span { font-size: .82rem; }
+.j5-guide li svg { width: 14px; height: 14px; color: var(--green); }
+
+/* Lời mời cuối: căn giữa */
+.j5-final-in { display: grid; justify-items: center; text-align: center; }
+.j5-final-in > p { max-width: 52ch; margin-top: 14px !important; color: var(--ink-2); }
+.j5-final-in .rn-actions { justify-content: center; }
