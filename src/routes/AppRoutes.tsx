@@ -238,6 +238,7 @@ const HomePage3 = lazy(() => import("../pages/Home3/HomePage3"));
 const HomePage4 = lazy(() => import("../pages/Home4/HomePage4"));
 const HomePage5 = lazy(() => import("../pages/Home5/HomePage5"));
 const HomePage6 = lazy(() => import("../pages/Home6/HomePage6"));
+const HomePage7 = lazy(() => import("../pages/Home7/HomePage7"));
 const HomeClassicPage = lazy(
   () => import("../pages/HomeClassic/HomeClassicPage")
 );
@@ -317,6 +318,17 @@ const AppRoutes = () => {
               <NotificationRealtime />
               <GlobalLoadingOverlay />
               <HomePage6 />
+            </ToastProvider>
+          }
+        />
+        {/* Trang chủ nháp 7 để so sánh: cùng nội dung /home-6, phong cách tạp chí nghệ thuật */}
+        <Route
+          path="/home-7"
+          element={
+            <ToastProvider>
+              <NotificationRealtime />
+              <GlobalLoadingOverlay />
+              <HomePage7 />
             </ToastProvider>
           }
         />

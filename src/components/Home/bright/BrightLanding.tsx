@@ -8,6 +8,7 @@ import { ECO5, FINAL5, HERO5, TOOLS5, WHY5 } from "../journey/home5Content";
 import heroImg from "../../../assets/images/home/ho-chi-minh-city-skyline.jpg";
 import cityImg from "../../../assets/images/home/thu-thiem-04-2020.jpg";
 import "../ninja/ninja.css";
+import CountUp from "./CountUp";
 import "./bright.css";
 
 /* Trang chủ nháp 6 (/home-6): xen kẽ dải xanh đậm và dải sáng, nhấn vàng.
@@ -44,37 +45,6 @@ function tilt(e: PointerEvent<HTMLElement>) {
 function untilt(e: PointerEvent<HTMLElement>) {
   e.currentTarget.style.setProperty("--ry", "0deg");
   e.currentTarget.style.setProperty("--rx", "0deg");
-}
-
-// Số liệu đếm từ 0 lên khi cuộn tới ("20.000+" → đếm 0..20000, giữ dấu chấm và hậu tố)
-function CountUp({ value }: { value: string }) {
-  const m = value.match(/^([\d.]+)(.*)$/);
-  const target = m ? Number(m[1].replace(/\./g, "")) : 0;
-  const suffix = m ? m[2] : "";
-  const ref = useRef<HTMLElement>(null);
-  const [n, setN] = useState(() => (reduceMotion() ? target : 0));
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || reduceMotion()) return;
-    let raf = 0;
-    const io = new IntersectionObserver(([e]) => {
-      if (!e.isIntersecting) return;
-      io.disconnect();
-      const t0 = performance.now();
-      const step = (t: number) => {
-        const p = Math.min(1, (t - t0) / 1600);
-        setN(Math.round(target * (1 - Math.pow(1 - p, 3))));
-        if (p < 1) raf = requestAnimationFrame(step);
-      };
-      raf = requestAnimationFrame(step);
-    }, { threshold: 0.4 });
-    io.observe(el);
-    return () => { io.disconnect(); cancelAnimationFrame(raf); };
-  }, [target]);
-
-  if (!m) return <b>{value}</b>;
-  return <b ref={ref}>{n.toLocaleString("vi-VN")}{suffix}</b>;
 }
 
 /* Hình minh họa nhỏ trong thẻ giá trị: mỗi thẻ một kiểu, đúng với nội dung thẻ */
@@ -120,59 +90,91 @@ function ToolPreview({ i, image }: { i: number; image: string }) {
   );
 }
 
-/* ---------- Chỉnh độ xanh của trang ---------- */
+/* ---------- Chỉnh màu xanh + màu vàng của trang ---------- */
 type Tone = { h: number; s: number; l: number };
-const TONE_DEFAULT: Tone = { h: 158, s: 1, l: 0 };
-const TONE_KEY = "home6-green";
-const TONE_PRESETS: { name: string; tone: Tone }[] = [
-  { name: "Xanh rêu (mặc định)", tone: TONE_DEFAULT },
-  { name: "Lục bảo", tone: { h: 165, s: 1.05, l: 1 } },
-  { name: "Xanh ngọc", tone: { h: 176, s: 0.9, l: 0 } },
-  { name: "Xanh lá tươi", tone: { h: 145, s: 1.15, l: 3 } },
-  { name: "Xanh trầm", tone: { h: 155, s: 0.7, l: -3 } },
-];
-const sameTone = (a: Tone, b: Tone) => a.h === b.h && a.s === b.s && a.l === b.l;
+type Channel = "green" | "gold";
+type Palette = Record<Channel, Tone>;
 
-function loadTone(): Tone {
+// Cấu hình từng nhóm màu: giá trị mặc định, mẫu có sẵn, giới hạn thanh kéo, cách vẽ ô mẫu
+const CHANNELS: Record<Channel, { label: string; hueLabel: string; def: Tone; hue: [number, number]; light: [number, number]; swatch: (t: Tone) => string; presets: { name: string; tone: Tone }[] }> = {
+  green: {
+    label: "Xanh", hueLabel: "Sắc xanh", def: { h: 158, s: 1, l: 0 }, hue: [120, 190], light: [-6, 10],
+    swatch: (t) => `hsl(${t.h} ${77 * t.s}% ${14 + t.l}%)`,
+    presets: [
+      { name: "Xanh rêu (mặc định)", tone: { h: 158, s: 1, l: 0 } },
+      { name: "Lục bảo", tone: { h: 165, s: 1.05, l: 1 } },
+      { name: "Xanh ngọc", tone: { h: 176, s: 0.9, l: 0 } },
+      { name: "Xanh lá tươi", tone: { h: 145, s: 1.15, l: 3 } },
+      { name: "Xanh trầm", tone: { h: 155, s: 0.7, l: -3 } },
+    ],
+  },
+  gold: {
+    label: "Vàng", hueLabel: "Sắc vàng", def: { h: 44, s: 1, l: 0 }, hue: [28, 58], light: [-14, 12],
+    swatch: (t) => `hsl(${t.h} ${Math.min(100, 91 * t.s)}% ${57 + t.l}%)`,
+    presets: [
+      { name: "Vàng (mặc định)", tone: { h: 44, s: 1, l: 0 } },
+      { name: "Vàng cam", tone: { h: 36, s: 1, l: -2 } },
+      { name: "Vàng chanh", tone: { h: 52, s: 0.95, l: 2 } },
+      { name: "Vàng đồng", tone: { h: 38, s: 0.6, l: -8 } },
+      { name: "Vàng kem", tone: { h: 46, s: 0.75, l: 8 } },
+    ],
+  },
+};
+const PALETTE_DEFAULT: Palette = { green: CHANNELS.green.def, gold: CHANNELS.gold.def };
+const PALETTE_KEY = "home6-colors";
+const sameTone = (a: Tone, b: Tone) => a.h === b.h && a.s === b.s && a.l === b.l;
+const isTone = (t: unknown): t is Tone => !!t && typeof t === "object" && ["h", "s", "l"].every((k) => typeof (t as Record<string, unknown>)[k] === "number");
+
+function loadPalette(): Palette {
   try {
-    const t = JSON.parse(localStorage.getItem(TONE_KEY) ?? "null");
-    if (t && typeof t.h === "number" && typeof t.s === "number" && typeof t.l === "number") return t;
+    const p = JSON.parse(localStorage.getItem(PALETTE_KEY) ?? "null");
+    return { green: isTone(p?.green) ? p.green : PALETTE_DEFAULT.green, gold: isTone(p?.gold) ? p.gold : PALETTE_DEFAULT.gold };
   } catch { /* không đọc được thì dùng mặc định */ }
-  return TONE_DEFAULT;
+  return PALETTE_DEFAULT;
 }
 
-function GreenTuner({ tone, onChange }: { tone: Tone; onChange: (t: Tone) => void }) {
+function ColorTuner({ palette, onChange }: { palette: Palette; onChange: (p: Palette) => void }) {
   const [open, setOpen] = useState(false);
-  const set = (k: keyof Tone) => (e: ChangeEvent<HTMLInputElement>) => onChange({ ...tone, [k]: Number(e.target.value) });
-  const swatch = (t: Tone) => `hsl(${t.h} ${77 * t.s}% ${14 + t.l}%)`;
+  const [tab, setTab] = useState<Channel>("green");
+  const cfg = CHANNELS[tab];
+  const tone = palette[tab];
+  const put = (t: Tone) => onChange({ ...palette, [tab]: t });
+  const set = (k: keyof Tone) => (e: ChangeEvent<HTMLInputElement>) => put({ ...tone, [k]: Number(e.target.value) });
   return (
     <div className="bt-tune">
       {open && (
-        <div className="bt-tune-panel" role="dialog" aria-label="Chỉnh độ xanh">
-          <h4>Chỉnh độ xanh</h4>
-          <div className="bt-tune-presets">
-            {TONE_PRESETS.map((p) => (
-              <button key={p.name} type="button" title={p.name} aria-label={p.name} className={sameTone(p.tone, tone) ? "is-on" : ""}
-                style={{ background: swatch(p.tone) }} onClick={() => onChange(p.tone)} />
+        <div className="bt-tune-panel" role="dialog" aria-label="Chỉnh màu trang">
+          <h4>Chỉnh màu trang</h4>
+          <div className="bt-tune-tabs" role="tablist">
+            {(Object.keys(CHANNELS) as Channel[]).map((c) => (
+              <button key={c} type="button" role="tab" aria-selected={c === tab} className={c === tab ? "is-on" : ""} onClick={() => setTab(c)}>
+                <i style={{ background: CHANNELS[c].swatch(palette[c]) }} />{CHANNELS[c].label}
+              </button>
             ))}
           </div>
-          <label><span>Sắc xanh <b>{tone.h}°</b></span>
-            <input type="range" min={120} max={190} step={1} value={tone.h} onChange={set("h")} />
+          <div className="bt-tune-presets">
+            {cfg.presets.map((p) => (
+              <button key={p.name} type="button" title={p.name} aria-label={p.name} className={sameTone(p.tone, tone) ? "is-on" : ""}
+                style={{ background: cfg.swatch(p.tone) }} onClick={() => put(p.tone)} />
+            ))}
+          </div>
+          <label><span>{cfg.hueLabel} <b>{tone.h}°</b></span>
+            <input type="range" min={cfg.hue[0]} max={cfg.hue[1]} step={1} value={tone.h} onChange={set("h")} />
           </label>
           <label><span>Độ tươi <b>{Math.round(tone.s * 100)}%</b></span>
             <input type="range" min={0.4} max={1.4} step={0.05} value={tone.s} onChange={set("s")} />
           </label>
           <label><span>Độ sáng <b>{tone.l > 0 ? "+" : ""}{tone.l}</b></span>
-            <input type="range" min={-6} max={10} step={1} value={tone.l} onChange={set("l")} />
+            <input type="range" min={cfg.light[0]} max={cfg.light[1]} step={1} value={tone.l} onChange={set("l")} />
           </label>
           <div className="bt-tune-foot">
             <small>h {tone.h} · s {tone.s} · l {tone.l}</small>
-            <button type="button" onClick={() => onChange(TONE_DEFAULT)}>Đặt lại</button>
+            <button type="button" onClick={() => put(cfg.def)}>Đặt lại {cfg.label.toLowerCase()}</button>
           </div>
         </div>
       )}
       <button type="button" className="bt-tune-btn" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
-        <i aria-hidden />Màu xanh
+        <i aria-hidden />Màu sắc
       </button>
     </div>
   );
@@ -258,15 +260,16 @@ function Devices() {
 export default function BrightLanding({ content }: { content: HomeContent }) {
   const root = useRef<HTMLDivElement>(null);
   useReveal(root);
-  const [tone, setTone] = useState(loadTone);
-  const changeTone = (t: Tone) => {
-    setTone(t);
-    try { localStorage.setItem(TONE_KEY, JSON.stringify(t)); } catch { /* bỏ qua nếu trình duyệt chặn lưu */ }
+  const [palette, setPalette] = useState(loadPalette);
+  const changePalette = (p: Palette) => {
+    setPalette(p);
+    try { localStorage.setItem(PALETTE_KEY, JSON.stringify(p)); } catch { /* bỏ qua nếu trình duyệt chặn lưu */ }
   };
+  const { green: g, gold: y } = palette;
 
   return (
-    <div ref={root} className="home-rn home-bt" style={{ "--h": tone.h, "--s": tone.s, "--l": tone.l } as CSSProperties}>
-      <GreenTuner tone={tone} onChange={changeTone} />
+    <div ref={root} className="home-rn home-bt" style={{ "--h": g.h, "--s": g.s, "--l": g.l, "--gh": y.h, "--gs": y.s, "--gl": y.l } as CSSProperties}>
+      <ColorTuner palette={palette} onChange={changePalette} />
       {/* ---------- 01. Hero ---------- */}
       <section className="bt-hero" aria-labelledby="bt-hero-t">
         <img className="bt-hero-img" src={heroImg} alt="Sông Sài Gòn và các tòa nhà trung tâm TP.HCM" />
