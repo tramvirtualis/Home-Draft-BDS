@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hubtech — Bất động sản tầm nhìn xanh (mẫu 9)</title>
+  <meta name="description" content="Hubtech: dự án cao cấp Thủ Thiêm, bảng hàng thời gian thực, tour 360° và giữ chỗ trực tuyến trên một nền tảng.">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&amp;family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- SVG dùng chung: icon nét mảnh -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.4-3 7.8-7 9-4-1.2-7-4.6-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-cube" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.6c2.8.2 4.8 1.9 5.5 5.4"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0119 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  </svg>
+
+  <!-- ================= Header ================= -->
+  <header class="hdr" id="hdr">
+    <div class="hdr-in">
+      <a class="logo" href="./"><span class="logo-mark" aria-hidden="true"></span>hubtech</a>
+      <nav class="hdr-nav" id="hdr-nav" aria-label="Chính">
+        <a href="/projects">Dự án</a>
+        <a href="/events">Sự kiện</a>
+        <a href="/news">Tin tức</a>
+        <a href="/social">Cộng đồng</a>
+        <a href="/knowledge">Kiến thức</a>
+        <a href="/jobs">Tuyển dụng</a>
+      </nav>
+      <div class="hdr-act">
+        <a class="hdr-login" href="/login">Đăng nhập</a>
+        <a class="btn btn-g btn-sm" href="/register">Đăng ký</a>
+        <button class="hdr-menu" id="hdr-menu" type="button" aria-expanded="false" aria-controls="hdr-nav" aria-label="Mở menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= Hero: đèn sân khấu ================= -->
+  <section class="hero" aria-labelledby="hero-t" data-node>
+    <div class="spot" aria-hidden="true"><i class="spot-src"></i><i class="spot-cone"></i><i class="spot-rays"></i><i class="spot-floor"></i></div>
+    <canvas class="dust" id="dust" aria-hidden="true"></canvas>
+    <div class="wrap hero-in">
+      <p class="pill"><span class="pulse"></span>Nền tảng bất động sản số · Thủ Thiêm</p>
+      <h1 class="hero-t" id="hero-t"><span class="sweep">Bất động sản</span><br><em>tầm nhìn xanh</em></h1>
+      <p class="hero-sub">Dự án cao cấp ven sông Sài Gòn, bảng hàng thời gian thực, tour 360° và giữ chỗ trực tuyến. Trọn hành trình mua nhà trên một nền tảng.</p>
+      <div class="hero-act">
+        <a class="btn btn-g" href="/projects">Khám phá dự án <svg class="ic"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-w" href="#nen-tang"><span class="dot-live"></span>Xem bảng hàng</a>
+      </div>
+    </div>
+
+    <div class="wrap hero-stage">
+      <div class="hero-vis" aria-label="Dự án Lumen tại Thủ Thiêm">
+        <figure class="hv-main">
+          <img src="../../assets/images/home/ho-chi-minh-city-skyline-at-night.jpg" width="1366" height="720" alt="Đường chân trời Quận 1 về đêm nhìn từ bờ Thủ Thiêm">
+          <figcaption>
+            <span class="hv-tag">Đang mở bán</span>
+            <b>Lumen Riverside</b>
+            <span><svg class="ic"><use href="#i-pin"/></svg>Thủ Thiêm, TP. Thủ Đức</span>
+          </figcaption>
+        </figure>
+        <div class="chip chip-sheet" id="chip-sheet">
+          <p class="chip-h"><span class="dot-live"></span>Bảng hàng trực tiếp</p>
+          <ul id="mini">
+            <li data-s="free"><b>A-16.03</b><span>2PN · 72m²</span><em>6,72 tỷ</em></li>
+            <li data-s="hold"><b>A-18.01</b><span>3PN · 98m²</span><em>9,24 tỷ</em></li>
+            <li data-s="free"><b>A-20.06</b><span>3PN · 104m²</span><em>9,98 tỷ</em></li>
+          </ul>
+        </div>
+        <div class="chip chip-hold"><p>Giữ chỗ còn</p><b id="hero-clock">71:59:59</b></div>
+        <div class="chip chip-360"><span>360°</span> Tour từng căn</div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <dl class="stats">
+        <div><dt>Dự án đang phân phối</dt><dd><b data-roll>12</b>+</dd></div>
+        <div><dt>Căn đã bàn giao</dt><dd><b data-roll>4.800</b>+</dd></div>
+        <div><dt>Khách hàng hài lòng</dt><dd><b data-roll>98</b>%</dd></div>
+        <div><dt>Năm kinh nghiệm</dt><dd><b data-roll>15</b></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- dải sáng chạy dọc trang: JS đặt vị trí và độ dài -->
+  <div class="beam" id="beam" aria-hidden="true"><i class="beam-track"></i><i class="beam-fill" id="beam-fill"></i><i class="beam-head" id="beam-head"></i></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ================= Ticker ================= -->
+  <div class="ticker" aria-label="Biến động bảng hàng (dữ liệu mẫu)">
+    <div class="ticker-track" id="ticker"></div>
+  </div>
+
+  <!-- ================= Bốn giá trị ================= -->
+  <section class="sec" id="gioi-thieu" data-node aria-labelledby="why-t">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Về Hubtech</p>
+        <h2 class="h2" id="why-t">Bốn giá trị làm nên <em>sự khác biệt</em></h2>
+      </div>
+      <div class="mods">
+        <article class="mod" data-reveal><span class="mod-ic"><svg class="ic"><use href="#i-shield"/></svg></span><h3>Minh bạch</h3><p>Pháp lý, giá và tiến độ của mọi dự án được công khai và kiểm chứng.</p></article>
+        <article class="mod" data-reveal style="--i:1"><span class="mod-ic"><svg class="ic"><use href="#i-cube"/></svg></span><h3>Trực quan</h3><p>Tour 360°, mặt bằng tương tác và bảng hàng thời gian thực trên một màn hình.</p></article>
+        <article class="mod" data-reveal style="--i:2"><span class="mod-ic"><svg class="ic"><use href="#i-users"/></svg></span><h3>Kết nối</h3><p>Môi giới, nhà đầu tư và người mua gặp nhau trong một cộng đồng chung.</p></article>
+        <article class="mod" data-reveal style="--i:3"><span class="mod-ic"><svg class="ic"><use href="#i-spark"/></svg></span><h3>Hiện đại</h3><p>Trợ lý AI trả lời 24/7 và giữ chỗ trực tuyến chỉ trong vài phút.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Cửa sổ mở: Thủ Thiêm ================= -->
+  <section class="opening" data-node aria-labelledby="op-t">
+    <div class="opening-stage">
+      <img src="../../assets/images/home/vista-de-ciudad-ho-chi-minh-desde.jpg" width="1920" height="1095" alt="Sông Sài Gòn uốn quanh bán đảo Thủ Thiêm, nhìn từ Quận 1" loading="lazy">
+      <div class="opening-cap">
+        <p class="kicker kicker-l">Vị trí</p>
+        <h2 class="h2" id="op-t">Thủ Thiêm, <em>một bán đảo</em></h2>
+        <p>Ba dự án Hubtech phân phối nằm ngay bên kia sông Sài Gòn, đối diện Quận 1.</p>
+        <div class="op-facts">
+          <div><b>5 phút</b><span>tới Quận 1</span></div>
+          <div><b>2 cây cầu</b><span>Thủ Thiêm · Ba Son</span></div>
+          <div><b>Ven sông</b><span>tầm nhìn trọn vẹn</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Tuyên ngôn ================= -->
+  <section class="sec manifesto" data-node aria-label="Tuyên ngôn">
+    <div class="wrap">
+      <p class="mf" data-fill>Chúng tôi không chỉ xây những tòa nhà. Chúng tôi kiến tạo nơi bắt đầu của mỗi gia đình, nơi ánh sáng, cây xanh và con người gặp nhau mỗi ngày.</p>
+    </div>
+  </section>
+
+  <!-- ================= Dự án: trượt ngang ================= -->
+  <section class="proj" data-node id="du-an" aria-labelledby="proj-t">
+    <div class="proj-pin">
+      <div class="wrap proj-head">
+        <div>
+          <p class="kicker">Dự án nổi bật</p>
+          <h2 class="h2" id="proj-t">Ba dự án, <em>một bờ sông</em></h2>
+        </div>
+        <a class="more" href="/projects">Tất cả dự án <svg class="ic"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="proj-track" id="proj-track">
+        <article class="pcard">
+          <a class="pcard-img" href="/projects"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&h=1000&q=80" width="1400" height="1000" alt="Tòa tháp kính LUMEN" loading="lazy"><span class="badge">Đang mở bán</span></a>
+          <div class="pcard-body">
+            <p class="pcard-loc"><svg class="ic"><use href="#i-pin"/></svg>Thủ Thiêm, TP.HCM</p>
+            <h3>Lumen</h3>
+            <dl class="spec"><div><dt>Loại hình</dt><dd>Căn hộ hạng sang</dd></div><div><dt>Giá từ</dt><dd>6,7 tỷ</dd></div><div><dt>Căn trống</dt><dd class="g">21 / 54</dd></div></dl>
+            <div class="meter"><span style="--v:0.61"></span></div>
+            <a class="pcard-link" href="/projects">Xem chi tiết <svg class="ic"><use href="#i-arrow"/></svg></a>
+          </div>
+        </article>
+        <article class="pcard">
+          <a class="pcard-img" href="/projects"><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1400&h=1000&q=80" width="1400" height="1000" alt="Biệt thự có hồ bơi AURELIA" loading="lazy"><span class="badge badge-y">Sắp mở bán</span></a>
+          <div class="pcard-body">
+            <p class="pcard-loc"><svg class="ic"><use href="#i-pin"/></svg>Đại lộ Vòng Cung</p>
+            <h3>Aurelia</h3>
+            <dl class="spec"><div><dt>Loại hình</dt><dd>Biệt thự thấp tầng</dd></div><div><dt>Giá từ</dt><dd>31 tỷ</dd></div><div><dt>Căn trống</dt><dd class="g">12 / 18</dd></div></dl>
+            <div class="meter"><span style="--v:0.33"></span></div>
+            <a class="pcard-link" href="/projects">Xem chi tiết <svg class="ic"><use href="#i-arrow"/></svg></a>
+          </div>
+        </article>
+        <article class="pcard">
+          <a class="pcard-img" href="/projects"><img src="../../assets/images/home/ho-chi-minh-city-skyline-at-night.jpg" width="1366" height="720" alt="Trung tâm TP.HCM về đêm, nơi có METROPOLE" loading="lazy"><span class="badge">Đang mở bán</span></a>
+          <div class="pcard-body">
+            <p class="pcard-loc"><svg class="ic"><use href="#i-pin"/></svg>Trung tâm TP.HCM</p>
+            <h3>Metropole</h3>
+            <dl class="spec"><div><dt>Loại hình</dt><dd>Tòa tháp hỗn hợp</dd></div><div><dt>Giá từ</dt><dd>3,1 tỷ</dd></div><div><dt>Căn trống</dt><dd class="g">33 / 120</dd></div></dl>
+            <div class="meter"><span style="--v:0.73"></span></div>
+            <a class="pcard-link" href="/projects">Xem chi tiết <svg class="ic"><use href="#i-arrow"/></svg></a>
+          </div>
+        </article>
+      </div>
+      <div class="wrap"><div class="proj-progress" aria-hidden="true"><span id="proj-bar"></span></div></div>
+    </div>
+  </section>
+
+  <!-- ================= Nền tảng: bento ================= -->
+  <section class="sec bento-sec" data-node id="nen-tang" aria-labelledby="bento-t">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Nền tảng</p>
+        <h2 class="h2" id="bento-t">Một nền tảng, <em>mọi nhu cầu</em></h2>
+      </div>
+      <div class="bento">
+        <a class="tile t-sheet" href="/projects" data-reveal>
+          <div class="tile-top"><h3>Bảng hàng trực tiếp</h3><span class="live"><i></i>LIVE</span></div>
+          <div class="sheet" id="sheet" aria-hidden="true"></div>
+          <p class="sheet-sum"><span><i class="d d-free"></i>Còn <b id="c-free">0</b></span><span><i class="d d-hold"></i>Giữ <b id="c-hold">0</b></span><span><i class="d d-sold"></i>Bán <b id="c-sold">0</b></span><span class="dim" id="c-tick">vừa cập nhật</span></p>
+        </a>
+        <a class="tile t-tour" href="/projects" data-reveal style="--i:1">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&h=600&q=80" width="1200" height="600" alt="Phòng khách căn mẫu trong tour 360°" loading="lazy">
+          <span class="deg" aria-hidden="true">360°</span>
+          <div class="tile-over"><h3>Tour 360° từng căn</h3><p>Xem hướng nắng, tầm nhìn ra sông trước khi đến.</p></div>
+        </a>
+        <a class="tile t-hold" href="/projects" data-reveal style="--i:2">
+          <h3>Giữ chỗ trực tuyến</h3>
+          <p class="clock" id="clock">71:59:59</p>
+          <p class="tile-p">Phiếu có mã căn, giữ trong 72 giờ.</p>
+        </a>
+        <a class="tile" href="/jobs" data-reveal>
+          <span class="mod-ic sm"><svg class="ic"><use href="#i-users"/></svg></span>
+          <h3>Tuyển dụng</h3><p class="tile-p">Việc làm ngành bất động sản, ứng tuyển một chạm.</p>
+        </a>
+        <a class="tile" href="/jobs/create-cv" data-reveal style="--i:1">
+          <span class="mod-ic sm"><svg class="ic"><use href="#i-spark"/></svg></span>
+          <h3>Tạo CV trực tuyến</h3><p class="tile-p">Mẫu CV chuyên nghiệp, xuất PDF trong vài phút.</p>
+        </a>
+        <a class="tile" href="/knowledge" data-reveal style="--i:2">
+          <span class="mod-ic sm"><svg class="ic"><use href="#i-shield"/></svg></span>
+          <h3>Kiến thức & pháp lý</h3><p class="tile-p">Cẩm nang mua nhà, tài liệu pháp lý cập nhật.</p>
+        </a>
+        <a class="tile t-navy" href="/social" data-reveal style="--i:3">
+          <h3>Cộng đồng & tin tức</h3>
+          <p class="tile-p">Hỏi người đã mua, theo dõi thị trường mỗi ngày và không bỏ lỡ lễ mở bán nào.</p>
+          <span class="arrow" aria-hidden="true"><svg class="ic"><use href="#i-arrow"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Hành trình ================= -->
+  <section class="sec journey" data-node id="hanh-trinh" aria-labelledby="jr-t">
+    <div class="wrap jr-in">
+      <div class="sec-head">
+        <p class="kicker">Hành trình</p>
+        <h2 class="h2" id="jr-t">Từ màn hình <em>đến chìa khóa</em></h2>
+        <p class="jr-lead">Mỗi bước rõ ràng, bạn luôn biết mình đang ở đâu và bước tiếp theo là gì.</p>
+        <a class="btn btn-g" href="/projects">Bắt đầu ngay <svg class="ic"><use href="#i-arrow"/></svg></a>
+      </div>
+      <ol class="pipe" id="pipe">
+        <li><span class="st" aria-hidden="true"></span><div><h3>Khám phá</h3><p>Lọc theo khu vực, ngân sách và loại hình, thu hẹp hàng trăm dự án xuống vài lựa chọn.</p></div><time>~ 1 tối</time></li>
+        <li><span class="st" aria-hidden="true"></span><div><h3>Trải nghiệm</h3><p>Tham quan 360° từng căn, đọc hồ sơ pháp lý và tiến độ ngay trên màn hình.</p></div><time>~ 1 tuần</time></li>
+        <li><span class="st" aria-hidden="true"></span><div><h3>Chọn căn</h3><p>Bảng hàng theo tòa, tầng, trục và hướng; so giá, diện tích, chiết khấu cùng lúc.</p></div><time>~ 2 ngày</time></li>
+        <li><span class="st" aria-hidden="true"></span><div><h3>Giữ chỗ</h3><p>Giữ chỗ trực tuyến, chuyên viên liên hệ trong 15 phút để hướng dẫn tiếp.</p></div><time>&lt; 5 phút</time></li>
+        <li><span class="st" aria-hidden="true"></span><div><h3>Nhận nhà</h3><p>Ký hợp đồng, theo dõi tiến độ qua ảnh cập nhật và nhận bàn giao căn hộ.</p></div><time>Bàn giao</time></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= Cảm nhận ================= -->
+  <section class="sec voices" data-node aria-labelledby="vc-t">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Khách hàng</p>
+        <h2 class="h2" id="vc-t">Họ nói gì về <em>Hubtech</em></h2>
+      </div>
+      <div class="vgrid">
+        <figure class="vcard" data-reveal><span class="stars" aria-label="5 sao">★★★★★</span><blockquote>Từ lúc xem tour 360° tới khi nhận nhà chỉ mất vài tuần. Mọi thứ minh bạch và nhanh hơn mình nghĩ.</blockquote><figcaption><i class="av">MA</i><span><b>Minh Anh</b>Cư dân Lumen</span></figcaption></figure>
+        <figure class="vcard vcard-hi" data-reveal style="--i:1"><span class="stars" aria-label="5 sao">★★★★★</span><blockquote>Bảng hàng cập nhật tức thì giúp tôi chọn được căn góc đẹp nhất trước khi mở bán chính thức.</blockquote><figcaption><i class="av">QB</i><span><b>Quốc Bảo</b>Nhà đầu tư Aurelia</span></figcaption></figure>
+        <figure class="vcard" data-reveal style="--i:2"><span class="stars" aria-label="5 sao">★★★★★</span><blockquote>Con cháu về chơi ai cũng mê hồ bơi trên tầng thượng. Đội ngũ chăm sóc khách hàng rất chu đáo.</blockquote><figcaption><i class="av">TH</i><span><b>Thu Hà</b>Cư dân Metropole</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Kết ================= -->
+  <section class="sec finale" data-node aria-labelledby="fn-t">
+    <div class="wrap">
+      <div class="fn-card">
+        <div class="spot spot-sm" aria-hidden="true"><i class="spot-src"></i><i class="spot-cone"></i><i class="spot-rays"></i></div>
+        <h2 class="fn-t" id="fn-t">Nhà của bạn, <em>số hoá trọn vẹn.</em></h2>
+        <p class="fn-sub">Để lại số điện thoại, chuyên viên Hubtech gọi lại trong 15 phút và đặt lịch xem nhà mẫu cho bạn.</p>
+        <form class="cta-form" action="/projects" aria-label="Đặt lịch tư vấn">
+          <label for="cta-in" class="sr-only">Số điện thoại</label>
+          <input id="cta-in" name="phone" type="tel" placeholder="Số điện thoại của bạn" autocomplete="tel">
+          <button class="btn btn-g" type="submit">Đặt lịch tư vấn <svg class="ic"><use href="#i-arrow"/></svg></button>
+        </form>
+        <p class="fn-alt">hoặc gọi <a href="tel:19001234">1900 1234</a> · <a href="mailto:hello@hubtech.vn">hello@hubtech.vn</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Footer ================= -->
+  <footer class="ftr">
+    <div class="wrap">
+      <div class="ftr-top">
+        <div class="ftr-brand">
+          <a class="logo" href="./"><span class="logo-mark" aria-hidden="true"></span>hubtech</a>
+          <p>Nền tảng bất động sản số: dự án, quỹ căn, sự kiện, tin tức và cơ hội nghề nghiệp.</p>
+          <a class="btn btn-g btn-sm" href="/register">Tạo tài khoản</a>
+        </div>
+        <nav class="ftr-col" aria-label="Khám phá"><h3>Khám phá</h3><a href="/projects">Dự án</a><a href="/events">Sự kiện</a><a href="/news">Tin tức</a><a href="/social">Cộng đồng</a></nav>
+        <nav class="ftr-col" aria-label="Nghề nghiệp"><h3>Nghề nghiệp</h3><a href="/jobs">Tuyển dụng</a><a href="/jobs/create-cv">Tạo CV</a><a href="/knowledge">Kiến thức</a></nav>
+        <div class="ftr-col"><h3>Liên hệ</h3><a href="tel:19001234">1900 1234</a><a href="mailto:hello@hubtech.vn">hello@hubtech.vn</a><span>Thủ Thiêm, TP. Thủ Đức</span></div>
+      </div>
+      <p class="ftr-mark" aria-hidden="true"><span>hubtech</span></p>
+      <div class="ftr-legal">
+        <p>© 2026 Hubtech. Ảnh: Diego Delso (CC BY-SA 3.0), Tran Van Ngoc (CC0) qua Wikimedia Commons; ảnh kiến trúc, nội thất Unsplash.</p>
+        <p><a href="/chinh-sach-bao-mat">Bảo mật</a> · <a href="/dieu-khoan">Điều khoản</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../shared/base.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

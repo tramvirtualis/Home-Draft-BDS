@@ -1,0 +1,277 @@
+{
+  "hero": {
+    "pill": "Nền tảng bất động sản số",
+    "titleLine1": "Bất động sản",
+    "titleLine2": "tầm nhìn xanh",
+    "subtitle": "Mua nhà không nên là chuyện chờ bảng giá, chạy đi xem từng căn hay đoán xem căn nào còn trống. Hubtech đưa cả hành trình đó lên một màn hình, rõ ràng từ lần xem đầu tiên đến lúc nhận chìa khóa.",
+    "primaryLabel": "Khám phá dự án",
+    "primaryLink": "/projects",
+    "secondaryLabel": "Xem bảng hàng",
+    "secondaryLink": "#nen-tang",
+    "image": "",
+    "imageAlt": "Đường chân trời Quận 1 về đêm nhìn từ bờ Thủ Thiêm",
+    "tag": "Đang mở bán",
+    "name": "Lumen Riverside",
+    "place": "Thủ Thiêm, TP. Thủ Đức",
+    "tourLabel": "Tour từng căn"
+  },
+  "stats": {
+    "items": [
+      {
+        "value": "12",
+        "suffix": "+",
+        "label": "Dự án đang phân phối"
+      },
+      {
+        "value": "4.800",
+        "suffix": "+",
+        "label": "Căn đã bàn giao"
+      },
+      {
+        "value": "98",
+        "suffix": "%",
+        "label": "Khách hàng hài lòng"
+      },
+      {
+        "value": "15",
+        "suffix": "",
+        "label": "Năm kinh nghiệm"
+      }
+    ]
+  },
+  "values": {
+    "kicker": "Vì sao chọn Hubtech",
+    "titleLead": "Bốn giá trị làm nên",
+    "titleAccent": "sự khác biệt",
+    "items": [
+      {
+        "icon": "shield",
+        "title": "Minh bạch",
+        "desc": "Pháp lý, giá và tiến độ của mọi dự án được công khai và kiểm chứng."
+      },
+      {
+        "icon": "cube",
+        "title": "Trực quan",
+        "desc": "Tour 360°, mặt bằng tương tác và bảng hàng thời gian thực trên một màn hình."
+      },
+      {
+        "icon": "users",
+        "title": "Kết nối",
+        "desc": "Môi giới, nhà đầu tư và người mua gặp nhau trong một cộng đồng chung."
+      },
+      {
+        "icon": "bolt",
+        "title": "Hiện đại",
+        "desc": "Trợ lý AI trả lời 24/7 và giữ chỗ trực tuyến chỉ trong vài phút."
+      }
+    ]
+  },
+  "location": {
+    "kicker": "Vị trí",
+    "titleLead": "Thủ Thiêm,",
+    "titleAccent": "một bán đảo",
+    "subtitle": "Ba dự án Hubtech phân phối nằm ngay bên kia sông Sài Gòn, đối diện Quận 1.",
+    "image": "",
+    "imageAlt": "Sông Sài Gòn uốn quanh bán đảo Thủ Thiêm, nhìn từ Quận 1",
+    "facts": [
+      {
+        "value": "5 phút",
+        "label": "tới Quận 1"
+      },
+      {
+        "value": "2 cây cầu",
+        "label": "Thủ Thiêm · Ba Son"
+      },
+      {
+        "value": "Ven sông",
+        "label": "tầm nhìn trọn vẹn"
+      }
+    ]
+  },
+  "manifesto": {
+    "text": "Không chờ bảng giá, không đoán căn nào còn trống. Hubtech đưa cả hành trình mua nhà lên một màn hình."
+  },
+  "projects": {
+    "kicker": "Dự án nổi bật",
+    "titleLead": "Ba dự án,",
+    "titleAccent": "một bờ sông",
+    "moreLabel": "Tất cả dự án",
+    "moreLink": "/projects"
+  },
+  "platform": {
+    "kicker": "Nền tảng",
+    "titleLead": "Mọi công cụ mua nhà,",
+    "titleAccent": "trên một màn hình",
+    "subtitle": "Xem căn nào còn trống, tham quan từng căn và giữ chỗ ngay khi ưng ý. Không cần chờ ai gửi bảng giá.",
+    "sheetTitle": "Bảng hàng trực tiếp",
+    "sheetDesc": "Biết ngay căn nào còn trống, căn nào đang có người giữ và căn nào đã bán.",
+    "sheetCta": "Xem bảng hàng",
+    "sheetLink": "/projects",
+    "tourTitle": "Tour 360° từng căn",
+    "tourDesc": "Xem hướng nắng, tầm nhìn ra sông và bố trí phòng trước khi đến.",
+    "tourCta": "Tham quan ngay",
+    "tourLink": "/projects",
+    "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&h=600&q=80",
+    "imageAlt": "Phòng khách căn mẫu trong tour 360°",
+    "holdTitle": "Giữ chỗ trực tuyến",
+    "holdDesc": "Chọn căn ưng ý, căn được giữ riêng cho bạn trong 30 phút để chuyên viên gọi xác nhận.",
+    "holdCta": "Giữ chỗ",
+    "holdLink": "/projects",
+    "guideTitle": "Kiến thức & pháp lý",
+    "guideDesc": "Cẩm nang mua nhà và hồ sơ pháp lý từng dự án, đọc trước khi xuống tiền.",
+    "guideCta": "Đọc cẩm nang",
+    "guideLink": "/knowledge",
+    "moreTitle": "Hơn cả mua nhà",
+    "more": [
+      {
+        "icon": "chat",
+        "title": "Cộng đồng",
+        "desc": "Hỏi người đã mua, chia sẻ kinh nghiệm thật.",
+        "cta": "Tham gia",
+        "link": "/social"
+      },
+      {
+        "icon": "calendar",
+        "title": "Sự kiện mở bán",
+        "desc": "Lịch mở bán, tham quan nhà mẫu, hội thảo.",
+        "cta": "Xem lịch",
+        "link": "/events"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Tuyển dụng",
+        "desc": "Việc làm ngành bất động sản, ứng tuyển một chạm.",
+        "cta": "Tìm việc",
+        "link": "/jobs"
+      },
+      {
+        "icon": "file",
+        "title": "Tạo CV trực tuyến",
+        "desc": "Mẫu CV chuyên nghiệp, xuất PDF trong vài phút.",
+        "cta": "Tạo CV",
+        "link": "/jobs/create-cv"
+      }
+    ]
+  },
+  "journey": {
+    "kicker": "Hành trình",
+    "titleLead": "Từ màn hình",
+    "titleAccent": "đến chìa khóa",
+    "subtitle": "Mỗi bước rõ ràng, bạn luôn biết mình đang ở đâu và bước tiếp theo là gì.",
+    "buttonLabel": "Bắt đầu ngay",
+    "buttonLink": "/projects",
+    "steps": [
+      {
+        "title": "Khám phá",
+        "desc": "Lọc theo khu vực, ngân sách và loại hình, thu hẹp hàng trăm dự án xuống vài lựa chọn.",
+        "time": "~ 1 tối"
+      },
+      {
+        "title": "Trải nghiệm",
+        "desc": "Tham quan 360° từng căn, đọc hồ sơ pháp lý và tiến độ ngay trên màn hình.",
+        "time": "~ 1 tuần"
+      },
+      {
+        "title": "Chọn căn",
+        "desc": "Bảng hàng theo tòa, tầng, trục và hướng; so giá, diện tích, chiết khấu cùng lúc.",
+        "time": "~ 2 ngày"
+      },
+      {
+        "title": "Giữ chỗ",
+        "desc": "Giữ chỗ trực tuyến, chuyên viên liên hệ trong 15 phút để hướng dẫn tiếp.",
+        "time": "< 5 phút"
+      },
+      {
+        "title": "Nhận nhà",
+        "desc": "Ký hợp đồng, theo dõi tiến độ qua ảnh cập nhật và nhận bàn giao căn hộ.",
+        "time": "Bàn giao"
+      }
+    ]
+  },
+  "testimonials": {
+    "kicker": "Khách hàng",
+    "titleLead": "Họ nói gì về",
+    "titleAccent": "Hubtech",
+    "items": [
+      {
+        "quote": "Từ lúc xem tour 360° tới khi nhận nhà chỉ mất vài tuần. Mọi thứ minh bạch và nhanh hơn mình nghĩ.",
+        "name": "Minh Anh",
+        "role": "Cư dân Lumen",
+        "initials": "MA"
+      },
+      {
+        "quote": "Bảng hàng cập nhật tức thì giúp tôi chọn được căn góc đẹp nhất trước khi mở bán chính thức.",
+        "name": "Quốc Bảo",
+        "role": "Nhà đầu tư Aurelia",
+        "initials": "QB"
+      },
+      {
+        "quote": "Con cháu về chơi ai cũng mê hồ bơi trên tầng thượng. Đội ngũ chăm sóc khách hàng rất chu đáo.",
+        "name": "Thu Hà",
+        "role": "Cư dân Metropole",
+        "initials": "TH"
+      }
+    ]
+  },
+  "finale": {
+    "titleLead": "Nhà của bạn,",
+    "titleAccent": "số hoá trọn vẹn.",
+    "subtitle": "Tạo tài khoản miễn phí để lưu căn yêu thích, giữ chỗ trực tuyến và nhận thông báo khi có đợt mở bán mới.",
+    "registerLabel": "Đăng ký miễn phí",
+    "registerLink": "/register",
+    "memberSubtitle": "Bảng hàng, tour 360° và giữ chỗ trực tuyến đã sẵn sàng. Chọn một dự án để bắt đầu.",
+    "memberLabel": "Khám phá dự án",
+    "memberLink": "/projects",
+    "phone": "0914 123 383",
+    "email": "lienhe.datvietgroup@gmail.com"
+  },
+  "footer": {
+    "description": "Nền tảng bất động sản số: dự án, quỹ căn, sự kiện, tin tức và cơ hội nghề nghiệp.",
+    "buttonLabel": "Tạo tài khoản",
+    "buttonLink": "/register",
+    "phone": "0914 123 383",
+    "email": "lienhe.datvietgroup@gmail.com",
+    "address": "Hội sở: SB23 - 299, SB23 - 217 KĐT Vinhomes Ocean Park, Trâu Quỳ, Gia Lâm, Hà Nội",
+    "legal": "© 2026 Hubtech. Bảo lưu mọi quyền.",
+    "columns": [
+      {
+        "title": "Khám phá",
+        "links": [
+          {
+            "label": "Dự án",
+            "link": "/projects"
+          },
+          {
+            "label": "Sự kiện",
+            "link": "/events"
+          },
+          {
+            "label": "Tin tức",
+            "link": "/news"
+          },
+          {
+            "label": "Cộng đồng",
+            "link": "/social"
+          }
+        ]
+      },
+      {
+        "title": "Nghề nghiệp",
+        "links": [
+          {
+            "label": "Tuyển dụng",
+            "link": "/jobs"
+          },
+          {
+            "label": "Tạo CV",
+            "link": "/jobs/create-cv"
+          },
+          {
+            "label": "Kiến thức",
+            "link": "/knowledge"
+          }
+        ]
+      }
+    ]
+  }
+}

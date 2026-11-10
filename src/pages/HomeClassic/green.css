@@ -1,0 +1,72 @@
+/* /home-classic: lớp phong cách xanh lá kiểu bộ nhận diện mẫu (khối xanh đậm có lưới chấm phát sáng, ảnh tông xanh). */
+
+/* Khối xanh đậm: quầng xanh phía trên + lưới chấm mờ dần */
+.hc-dark {
+  position: relative;
+  background:
+    radial-gradient(60% 55% at 75% 0%, rgba(0, 177, 79, 0.3), transparent 70%),
+    radial-gradient(45% 45% at 0% 100%, rgba(0, 177, 79, 0.16), transparent 70%),
+    #0a2416;
+  color: #ffffff;
+}
+.hc-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(110, 231, 160, 0.16) 1px, transparent 1.4px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(70% 80% at 70% 25%, #000, transparent 78%);
+  pointer-events: none;
+}
+
+/* Ảnh / video tông xanh như ảnh hologram trong mẫu */
+.hc-tint {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.hc-tint :is(img, video) {
+  filter: grayscale(1) contrast(1.15) brightness(0.68);
+}
+.hc-tint::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #00b14f;
+  mix-blend-mode: color;
+  opacity: 0.7;
+  pointer-events: none;
+}
+.hc-tint::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0, 177, 79, 0.08), rgba(10, 36, 22, 0.55));
+  pointer-events: none;
+}
+/* Rê chuột: ảnh hiện màu thật */
+.group:hover .hc-tint-hover :is(img, video) {
+  filter: none;
+}
+.hc-tint-hover::before,
+.hc-tint-hover::after {
+  transition: opacity 0.6s ease;
+}
+.group:hover .hc-tint-hover::before,
+.group:hover .hc-tint-hover::after {
+  opacity: 0;
+}
+
+/* Logo chấm lơ lửng chậm */
+@keyframes hc-float {
+  0%, 100% { transform: perspective(900px) rotateY(-18deg) rotateX(8deg) translateY(0); }
+  50% { transform: perspective(900px) rotateY(-12deg) rotateX(4deg) translateY(-14px); }
+}
+.hc-float {
+  animation: hc-float 7s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hc-float { animation: none; }
+}

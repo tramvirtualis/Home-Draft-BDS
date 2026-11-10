@@ -1,0 +1,56 @@
+/* /home-classic kiểu lime: băng chữ chạy, huy hiệu xoay, ảnh đen trắng, sọc chéo */
+
+@keyframes lime-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.lime-marquee {
+  animation: lime-marquee 32s linear infinite;
+}
+.lime-marquee-wrap:hover .lime-marquee {
+  animation-play-state: paused;
+}
+
+@keyframes lime-spin {
+  to { transform: rotate(360deg); }
+}
+.lime-spin {
+  animation: lime-spin 14s linear infinite;
+}
+
+@keyframes lime-twinkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(0.75) rotate(20deg); opacity: 0.7; }
+}
+.lime-twinkle {
+  animation: lime-twinkle 3s ease-in-out infinite;
+}
+
+/* Ảnh đen trắng, rê chuột hiện màu */
+.lime-photo img {
+  filter: grayscale(1) contrast(1.05);
+  transition: filter 0.6s ease, transform 0.8s ease;
+}
+.lime-photo:hover img {
+  filter: grayscale(0);
+  transform: scale(1.04);
+}
+
+/* Dải sọc chéo ở mép trên khối dịch vụ */
+.lime-stripes {
+  background-image: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.07) 0 2px, transparent 2px 9px);
+}
+
+/* Chấm trang trí */
+.lime-dots {
+  background-image: radial-gradient(#c9cdc9 2.2px, transparent 2.6px);
+  background-size: 16px 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lime-marquee,
+  .lime-spin,
+  .lime-twinkle {
+    animation: none;
+  }
+}

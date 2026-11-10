@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" preserveAspectRatio="xMidYMid slice">
+  <!-- Ảnh mặc định cho căn chưa có ảnh: thiết kế chữ trên nền 1 màu (không dùng ảnh của bên thứ ba) -->
+  <rect width="900" height="675" fill="#f6ecd4"/>
+
+  <g font-family="'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif" font-size="128" font-weight="900" letter-spacing="-3" text-anchor="middle">
+    <text x="450" y="322" fill="none" stroke="#101010" stroke-width="2.5">CHƯA</text>
+    <text x="450" y="452" fill="#c9991f">CẬP NHẬT</text>
+  </g>
+</svg>
